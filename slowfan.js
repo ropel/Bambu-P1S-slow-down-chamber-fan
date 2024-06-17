@@ -11,7 +11,7 @@ const regex = /M106 P3 S([1-9][0-9]*)/g;
 function replaceWithHalf(match, p1) {
     const originalNumber = parseInt(p1, 10);
     const newNumber = Math.floor(originalNumber / 2);
-    return `M106 P3 S${newNumber}`;
+    return `M106 P3  S${newNumber}`; // one more space between P3 and S, so multiple executions will not harm
 }
 
 // Recursively scanning directories
