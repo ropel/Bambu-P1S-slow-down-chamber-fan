@@ -41,11 +41,15 @@ function processDirectory(dirPath) {
                         // Replace the text with the new one
                         const newData = data.replace(regex, replaceWithHalf);
 
-                        // write the new content to the file
-                        fs.writeFile(filePath, newData, 'utf8', (err) => {
-                            if (err) return console.log('Error writing file: ' + err);
-                            console.log('File updated: ' + filePath);
-                        });
+                        if(newData != data) {
+                            // write the new content to the file
+                            fs.writeFile(filePath, newData, 'utf8', (err) => {
+                                if (err) return console.log('Error writing file: ' + err);
+                                console.log('File updated: ' + filePath);
+                            });
+                        } else {
+                            console.log('No changes made to: ' + filePath);
+                        }
                     });
                 }
             });
